@@ -55,10 +55,10 @@ fn get_input(filename: Option<&str>) -> Vec<i32> {
             vec
         }
         Some(filename) => {
-            let f = File::open(filename).expect("Unable to open file");
+            let f = File::open(filename).unwrap();
             let f = BufReader::new(f);
             for line in f.lines() {
-                let line = line.expect("Unable to read line");
+                let line = line.unwrap();
                 let n: i32 = line.parse().unwrap();
                 vec.push(n);
             }
