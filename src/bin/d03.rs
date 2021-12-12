@@ -26,10 +26,10 @@ fn get_input(filename: Option<&str>) -> Vec<Vec<u32>> {
             vec
         }
         Some(filename) => {
-            let f = File::open(filename).expect("Unable to open file");
+            let f = File::open(filename).unwrap();
             let f = BufReader::new(f);
             for line in f.lines() {
-                let line = line.expect("Unable to read line");
+                let line = line.unwrap();
                 vec.push(line.chars().map(|c| c.to_digit(10).unwrap()).collect());
             }
             vec

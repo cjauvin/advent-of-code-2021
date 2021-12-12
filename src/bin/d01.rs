@@ -59,7 +59,7 @@ fn get_input(filename: Option<&str>) -> Vec<i32> {
             let f = BufReader::new(f);
             for line in f.lines() {
                 let line = line.expect("Unable to read line");
-                let n: i32 = line.parse().expect("bla");
+                let n: i32 = line.parse().unwrap();
                 vec.push(n);
             }
             vec
